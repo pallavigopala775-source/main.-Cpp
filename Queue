@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int queue[5];
+int front = -1, rear = -1;
+
+void enqueue(int value) {
+
+    if(rear == 4)
+        printf("Queue Overflow\n");
+
+    else {
+
+        if(front == -1)
+            front = 0;
+
+        rear++;
+        queue[rear] = value;
+
+        printf("Inserted %d\n", value);
+    }
+}
+
+void display() {
+
+    int i;
+
+    for(i = front; i <= rear; i++) {
+        printf("%d\n", queue[i]);
+    }
+}
+
+int main() {
+
+    enqueue(5);
+    enqueue(10);
+    enqueue(15);
+
+    display();
+
+    return 0;
+}
