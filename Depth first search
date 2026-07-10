@@ -1,0 +1,27 @@
+public class Main {
+
+    static boolean[] visited = new boolean[5];
+
+    static int[][] graph = {
+        {1, 2},
+        {0, 3, 4},
+        {0},
+        {1},
+        {1}
+    };
+
+    static void dfs(int node) {
+        visited[node] = true;
+        System.out.print(node + " ");
+
+        for (int next : graph[node]) {
+            if (!visited[next]) {
+                dfs(next);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        dfs(0);
+    }
+}
